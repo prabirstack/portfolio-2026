@@ -8,6 +8,13 @@
       "when": 1773425548061,
       "tag": "0000_smooth_rocket_racer",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1773428450679,
+      "tag": "0001_lovely_pete_wisdom",
+      "breakpoints": true
     }
   ]
 }
