@@ -152,6 +152,8 @@ Required variables (documented in `.env.example`):
 - `UPLOADTHING_TOKEN` — Uploadthing API token
 - `RESEND_API_KEY` — Resend email API key
 - `NEXT_PUBLIC_GA_MEASUREMENT_ID` — Google Analytics 4 measurement ID
+- `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` — Google OAuth credentials
+- `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` — GitHub OAuth credentials
 
 ## Pages & Content
 
@@ -278,7 +280,8 @@ Every animation must have a purpose: guide attention, provide feedback, or creat
 ## Authentication & Admin
 
 ### better-auth Configuration
-- Single admin account (email + password, no public registration)
+- Single admin account (email + password + Google OAuth + GitHub OAuth)
+- No public registration — OAuth restricted to your specific email
 - Session-based authentication
 - All `/admin/*` routes protected via proxy (server-side auth check in layout/page, not Next.js middleware) — this avoids middleware complexity and keeps auth logic colocated with routes
 - Unauthenticated users redirected to `/admin/login`
