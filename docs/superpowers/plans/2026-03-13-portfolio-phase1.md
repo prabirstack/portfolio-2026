@@ -1065,7 +1065,7 @@ Share the same nav/footer layout as marketing pages.
 
 Similar to project admin but for posts. Basic CRUD list + create form shell.
 
-- [ ] **Step 7: Create `server/routers/subscribers.ts`**
+- [ ] **Step 6: Create `server/routers/subscribers.ts`**
 
 Define tRPC procedures:
 - `subscribe` (public): validate email with zod, check if already subscribed, generate confirmation token, insert with status "pending", send confirmation email via Resend
@@ -1073,7 +1073,7 @@ Define tRPC procedures:
 
 Teaches: token generation (`crypto.randomUUID()`), email sending, double opt-in flow
 
-- [ ] **Step 8: Create `components/shared/newsletter-form.tsx`**
+- [ ] **Step 7: Create `components/shared/newsletter-form.tsx`**
 
 Client component:
 - Email input + subscribe button
@@ -1083,11 +1083,11 @@ Client component:
 
 Teaches: simple form without react-hook-form (it's just one field), mutation states
 
-- [ ] **Step 9: Add newsletter form to Home page**
+- [ ] **Step 8: Add newsletter form to Home page**
 
 Replace the placeholder in the Home page with the actual `NewsletterForm` component.
 
-- [ ] **Step 10: Commit**
+- [ ] **Step 9: Commit**
 
 ```bash
 git add -A && git commit -m "feat: blog scaffold, newsletter signup with double opt-in"
