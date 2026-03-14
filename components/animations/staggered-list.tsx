@@ -4,8 +4,8 @@ import { motion, useReducedMotion } from "motion/react";
 interface StaggerListProps {
   children: React.ReactNode;
   className?: string;
+  animateOnMount?: boolean;
 }
-
 const containerVariants = {
   hidden: {},
   visible: {
@@ -15,13 +15,16 @@ const containerVariants = {
   },
 };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-  } as const;
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+} as const;
 
-
-export const StaggeredList = ({ children, className }: StaggerListProps) => {
+export const StaggeredList = ({
+  children,
+  className,
+  animateOnMount = false,
+}: StaggerListProps) => {
   const shouldReduceMotion = useReducedMotion();
   if (shouldReduceMotion) {
     return <div className={className}>{children}</div>;
@@ -30,8 +33,9 @@ export const StaggeredList = ({ children, className }: StaggerListProps) => {
     <motion.div
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      {...(animateOnMount
+        ? { animate: "visible" }
+        : { whileInView: "visible", viewport: { once: true, margin: "-50px" } })}
       className={className}
     >
       {children}
